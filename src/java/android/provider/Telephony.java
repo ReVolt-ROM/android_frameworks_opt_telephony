@@ -30,7 +30,6 @@ import android.text.TextUtils;
 import android.telephony.Rlog;
 import android.util.Patterns;
 
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -557,6 +556,28 @@ public final class Telephony {
             @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
             public static final String DATA_SMS_RECEIVED_ACTION =
                     "android.intent.action.DATA_SMS_RECEIVED";
+
+            /**
+             * Broadcast Action: A new text based mock SMS message has been received
+             * by the device. For development purpose only. The intent will have the
+             * following extra values:</p>
+             *
+             * <ul>
+             * <li><em>pdus</em> - An Object[] od byte[]s containing the PDUs
+             * that make up the message.</li>
+             * </ul></p>
+             * or</p>
+             * <ul>
+             * <li><em>scAddress</em> - The mock SC address. xe: +01123456789.</li>
+             * <li><em>senderAddr</em> - The mock sender address. xe: +01123456789.</li>
+             * <li><em>msg</em> - The mock message. Multiple SMS are sent if the
+             * length of the message exceed the SMS maximum length.</li>
+             * </ul>
+             * @hide
+             */
+             @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
+             public static final String MOCK_SMS_RECEIVED_ACTION =
+             "android.provider.Telephony.MOCK_SMS_RECEIVED";
 
             /**
              * Broadcast Action: A new WAP PUSH message has been received by the
@@ -2039,7 +2060,6 @@ public final class Telephony {
          */
         public static final Uri CONTENT_MESSAGE_URI =
                 Uri.parse("content://blacklist/message");
-
 
         /**
          * Query parameter used to match numbers by regular-expression like
