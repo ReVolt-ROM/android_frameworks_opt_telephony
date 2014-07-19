@@ -47,9 +47,9 @@ public class BlacklistUtils {
     public final static int MATCH_REGEX = 4;
 
     public final static int BLOCK_CALLS =
-            Settings.AOKP.BLACKLIST_BLOCK << Settings.AOKP.BLACKLIST_PHONE_SHIFT;
+            Settings.REVOLT.BLACKLIST_BLOCK << Settings.REVOLT.BLACKLIST_PHONE_SHIFT;
     public final static int BLOCK_MESSAGES =
-            Settings.AOKP.BLACKLIST_BLOCK << Settings.AOKP.BLACKLIST_MESSAGE_SHIFT;
+            Settings.REVOLT.BLACKLIST_BLOCK << Settings.REVOLT.BLACKLIST_MESSAGE_SHIFT;
 
     public static boolean addOrUpdate(Context context, String number, int flags, int valid) {
         ContentValues cv = new ContentValues();
@@ -153,32 +153,32 @@ public class BlacklistUtils {
     }
 
     public static boolean isBlacklistEnabled(Context context) {
-        return Settings.AOKP.getIntForUser(context.getContentResolver(),
-                Settings.AOKP.PHONE_BLACKLIST_ENABLED, 1,
+        return Settings.REVOLT.getIntForUser(context.getContentResolver(),
+                Settings.REVOLT.PHONE_BLACKLIST_ENABLED, 1,
                 UserHandle.USER_CURRENT_OR_SELF) != 0;
     }
 
     public static boolean isBlacklistNotifyEnabled(Context context) {
-        return Settings.AOKP.getIntForUser(context.getContentResolver(),
-                Settings.AOKP.PHONE_BLACKLIST_NOTIFY_ENABLED, 1,
+        return Settings.REVOLT.getIntForUser(context.getContentResolver(),
+                Settings.REVOLT.PHONE_BLACKLIST_NOTIFY_ENABLED, 1,
                 UserHandle.USER_CURRENT_OR_SELF) != 0;
     }
 
     public static boolean isBlacklistPrivateNumberEnabled(Context context, int mode) {
-        return (Settings.AOKP.getIntForUser(context.getContentResolver(),
-                Settings.AOKP.PHONE_BLACKLIST_PRIVATE_NUMBER_MODE, 0,
+        return (Settings.REVOLT.getIntForUser(context.getContentResolver(),
+                Settings.REVOLT.PHONE_BLACKLIST_PRIVATE_NUMBER_MODE, 0,
                 UserHandle.USER_CURRENT_OR_SELF) & mode) != 0;
     }
 
     public static boolean isBlacklistUnknownNumberEnabled(Context context, int mode) {
-        return (Settings.AOKP.getIntForUser(context.getContentResolver(),
-                Settings.AOKP.PHONE_BLACKLIST_UNKNOWN_NUMBER_MODE, 0,
+        return (Settings.REVOLT.getIntForUser(context.getContentResolver(),
+                Settings.REVOLT.PHONE_BLACKLIST_UNKNOWN_NUMBER_MODE, 0,
                 UserHandle.USER_CURRENT_OR_SELF) & mode) != 0;
     }
 
     public static boolean isBlacklistRegexEnabled(Context context) {
-        return Settings.AOKP.getIntForUser(context.getContentResolver(),
-                Settings.AOKP.PHONE_BLACKLIST_REGEX_ENABLED, 0,
+        return Settings.REVOLT.getIntForUser(context.getContentResolver(),
+                Settings.REVOLT.PHONE_BLACKLIST_REGEX_ENABLED, 0,
                 UserHandle.USER_CURRENT_OR_SELF) != 0;
     }
 }
